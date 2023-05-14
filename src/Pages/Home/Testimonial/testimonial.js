@@ -10,24 +10,24 @@ const Testimonial = () => {
     const reviews = [
         {
             _id:1,
-            name:'Winson Herry',
+            name:'Ahsanul Haque',
             img: people1,
             reviews:'The dental webpage was user-friendly and made booking my appointment a breeze. I appreciated the clear information and straightforward process.',
-            location:'California'
+            location:'Dhaka'
         },
         {
             _id:2,
-            name:'Susan',
+            name:'Samayra Islam',
             img: people2,
             reviews:'I found the dental webpage easy to use and informative. Booking an appointment was a breeze and the staff was helpful and friendly.',
-            location:'Dallas'
+            location:'Khulna'
         },
         {
             _id:3,
             name:'Maria',
             img: people3,
             reviews:'The dental webpage provided a seamless and hassle-free experience for booking my appointment. Kudos to the team for making it so simple and convenient. Iam excited to see what they have in store for my dental needs.',
-            location:'New York'
+            location:'Rajshahi'
         }
     ]
 

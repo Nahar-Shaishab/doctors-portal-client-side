@@ -4,8 +4,9 @@ import Home from "../../Pages/Home/Home"
 import Login from "../../Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Appointment from "../../Pages/Appointment/Appointment/Appoinment";
-import DashBoard from "../../Pages/DashBoard/DashBoard";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashBoardLayout from "../../Layout/DashBoardLayout";
+import MyAppointment from "../../Pages/DashBoard/MyAppointment/MyAppointment";
 const Router = createBrowserRouter([
     {
         path: '/',
@@ -32,7 +33,13 @@ const Router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
+        element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyAppointment></MyAppointment>
+            }
+        ]
     }
 ])
 

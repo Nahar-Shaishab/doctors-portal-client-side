@@ -17,7 +17,7 @@ const InfoCards = () => {
         {
             id: 2,
             name: 'Our Locations',
-            description: 'Open from 9.00 AM to 5.00 pm everyday',
+            description: 'Rajshahi',
             icon: marker,
             bgClass: 'bg-accent'
         },

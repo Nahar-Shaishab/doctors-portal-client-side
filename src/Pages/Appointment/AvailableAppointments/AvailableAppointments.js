@@ -1,18 +1,21 @@
 import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import AppointmentOption from './AppointmentOption';
 import BookingModal from '../BookingModal/BookingModal';
+import { useQuery } from 'react-query';
 
 const AvailableAppointments = ({ selectedDate }) => {
-    const [AppointmentOptions, setAppointmentOptions] = useState([]);
     const [treatment, setTreatment] = useState(null);
+    const date = format(selectedDate, 'PP');
 
-    useEffect(() => {
-        fetch('AppointmentOptions.json')
-            .then(res => res.json())
-            .then(data => setAppointmentOptions(data))
+    const {data:AppointmentOptions=[], refetch} = useQuery({
+        queryKey: ['AppointmentOptions',date],
+        queryFn: () => fetch(`https://doctors-portal-server-side-peach.vercel.app/AppointmentOptions?date=${date}`)
+        .then(res => res.json())
+    });
 
-    }, [])
+
+  
     return (
         <section className='my-16'>
             <p className='text-center text-secondary font-bold'>
@@ -33,6 +36,7 @@ const AvailableAppointments = ({ selectedDate }) => {
                     selectedDate={selectedDate}
                     treatment={treatment}
                     setTreatment={setTreatment}
+                    refetch={refetch}
                 ></BookingModal>
             }
 
